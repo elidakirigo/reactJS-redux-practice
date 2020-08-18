@@ -79,15 +79,41 @@ console.log(skier);
  * -------------------------------------
  */
 
- var peek = ["Kirkwood", "Squaw", "Alpine", "Heavenly", "Northstar"]
- var [last]= [...peek].reverse()
+var peek = ["Kirkwood", "Squaw", "Alpine", "Heavenly", "Northstar"]
+var [last] = [...peek].reverse()
 //  console.log(last);
 
- /**
-  * -----------------------------------------------
-  * getting the rest of an array
-  * -----------------------------------------------
-  */
+/**
+ * -----------------------------------------------
+ * getting the rest of an array
+ * -----------------------------------------------
+ */
 
-  var [,,second, ...rest] = peek
-  console.log(second,rest);
+var [, , second, ...rest] = peek
+console.log(second, rest);
+
+function directions(...args) {
+    var [start, ...remaining] = args
+    var [finish, ...stops] = remaining.reverse()
+    console.log(`drive through ${args.length} towns`)
+    console.log(`start in ${start}`)
+    console.log(`the destination is ${finish}`)
+    console.log(`stopping ${stops.length} times in between`)
+}
+directions("Truckee", "Tahoe City", "Sunnyside", "Homewood", "Tahoma")
+
+/**
+ * -------------------------------
+ * spread operator in objects
+ * -------------------------------
+ */
+var morning = {
+    breakfast: "oatmeal",
+    lunch: "peanut butter and jelly"
+}
+var dinner = "mac and cheese"
+var backpackingMeals = {
+    ...morning,
+    dinner
+}
+console.log(backpackingMeals)

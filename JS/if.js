@@ -3,7 +3,6 @@
  *  using let to protect the scope
  * -----------------------------------
  */
-
 let myname = 'elida'
 if (myname) {
     let myname = 'changed'
