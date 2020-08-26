@@ -44,3 +44,28 @@ function rateColor(color, rating) {
     return color
 }
 console.log(rateColor(color_lawn, 5).rating, color_lawn)
+
+/**
+ * -------------------------------------------
+ * how to declare immutable 
+ * -------------------------------------------
+ */
+
+let rateColor = function (color, rating) {
+    return Object.assign({}, color, {
+        rating: rating
+    })
+}
+console.log(rateColor(color_lawn, ).rating);
+console.log(color_lawn.rating);
+
+/**
+ * ---------------------------------------
+ * writing the above function using ES6
+ * ---------------------------------------
+ */
+
+const rateColor = (color, rating) => ({
+    ...color,
+    rating
+})
