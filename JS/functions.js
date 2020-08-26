@@ -93,3 +93,41 @@ const addColor = (title, array) => array.concat({
 })
 console.log(addColor('glam green', list).length);
 console.log(list);
+
+/**
+ * --------------------------------
+ * it can also be writen as 
+ * --------------------------------
+ */
+const addColour = (title, list) => [...list, {
+    title
+}]
+
+/**
+ * -----------------------------------------------
+ * example of a pure function 
+ * NOTE : if it causes side effects, changes the 
+ * values, does not return a value,
+ *  its not a pure function
+ * -----------------------------------------------
+ */
+
+var fredrick = {
+    name: 'fred daug',
+    canRead: false,
+    canWrite: false
+}
+
+const selfEducate = (person) => ({
+    ...person,
+    canRead: true,
+    canWrite: true
+})
+selfEducate(fredrick)
+
+/**
+ * ------------------------------
+ * example 2 : 
+ * ------------------------------
+ */
+const Header = (props) => <h1>{props.title}</h1>
