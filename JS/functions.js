@@ -5,7 +5,7 @@
  */
 
 var yarn = ['developed in 2015', getText => getText, 'npm can be of threat']
-console.log(yarn[1](yarn[0]));
+// console.log(yarn[1](yarn[0]));
 
 /**
  * ---------------------------------------
@@ -39,11 +39,11 @@ let color_lawn = {
     rating: 0
 }
 
-function rateColor(color, rating) {
+function rateColour(color, rating) {
     color.rating = rating
     return color
 }
-console.log(rateColor(color_lawn, 5).rating, color_lawn)
+// console.log(rateColour(color_lawn, 5).rating, color_lawn)
 
 /**
  * -------------------------------------------
@@ -51,13 +51,13 @@ console.log(rateColor(color_lawn, 5).rating, color_lawn)
  * -------------------------------------------
  */
 
-let rateColor = function (color, rating) {
+let rateColors = function (color, rating) {
     return Object.assign({}, color, {
         rating: rating
     })
 }
-console.log(rateColor(color_lawn, ).rating);
-console.log(color_lawn.rating);
+// console.log(rateColors(color_lawn, 5).rating);
+// console.log(color_lawn.rating);
 
 /**
  * ---------------------------------------
@@ -69,3 +69,27 @@ const rateColor = (color, rating) => ({
     ...color,
     rating
 })
+
+/**
+ * ----------------------------------------------------
+ * adding colors but 
+ * IMUTABLY(adding to a copy but maintaining the original)
+ *  to this array
+ * ----------------------------------------------------
+ */
+
+let list = [{
+        title: 'red red'
+    },
+    {
+        title: 'lawn'
+    },
+    {
+        title: 'party pink'
+    }
+]
+const addColor = (title, array) => array.concat({
+    title
+})
+console.log(addColor('glam green', list).length);
+console.log(list);
