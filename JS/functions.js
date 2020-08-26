@@ -130,4 +130,112 @@ selfEducate(fredrick)
  * example 2 : 
  * ------------------------------
  */
-const Header = (props) => <h1>{props.title}</h1>
+// const Header = (props) => <h1> {props.title} </h1>
+
+/**
+ * ------------------------------------
+ * USING THE FILTER FUNCTION
+ * ------------------------------------
+ */
+const schools = ["Yorktown", "Washington & Lee", "Wakefield"]
+const wSchools = schools.filter(school => school[0] === 'W')
+// console.log(wSchools);
+
+const cutSchool = (cut, list) => list.filter(school => school !== cut)
+console.log(cutSchool('Washington & Lee', schools).join(' * '));
+
+/**
+ * --------------------------------------------
+ * using MAP and object.keys()
+ * --------------------------------------------
+ */
+const schools = {
+    "Yorktown": 10,
+    "Washington & Lee": 2,
+    "Wakefield": 5
+}
+const schoolArray = Object.keys(schools).map(key => ({
+    name: key,
+    wins: schools[key]
+}))
+
+/**
+ * ------------------------------------
+ * using reduce in arrays with objects
+ * ------------------------------------
+ */
+const colors = [{
+    id: '-xekare',
+    title: "rad red",
+    rating: 3
+}, {
+    id: '-jbwsof',
+    title: "big blue",
+    rating: 2
+}, {
+    id: '-prigbj',
+    title: "grizzly grey",
+    rating: 5
+}, {
+    id: '-ryhbhsl',
+    title: "banana",
+    rating: 1
+}]
+
+const hashColors = colors.reduce((hash, {
+    id,
+    title,
+    rating
+}) => {
+    hash[id] = {
+        title,
+        rating
+    }
+    return hash
+}, {})
+
+/**
+ * -----------------------------------------
+ * reducing an array not to repeat colors
+ * -----------------------------------------
+ */
+const colors = ["red", "red", "green", "blue", "green"];
+
+const distinctColors = colors.reduce((distinct, color) => (distinct.indexOf(color) !== -1) ? distinct : [...distinct, color], [])
+
+/**
+ * ------------------------------
+ * HIGH order functions
+ * ------------------------------
+ */
+const invokeIf = (condition, fnTrue, fnFalse) => (condition) ? fnTrue() : fnFalse()
+
+const showWelcome = () => console.log("Welcome!!!")
+const showUnauthorized = () => console.log("Unauthorized!!!")
+
+invokeIf(true, showWelcome, showUnauthorized)
+invokeIf(false, showWelcome, showUnauthorized)
+
+/**
+ * -----------------------------------
+ * function within a function
+ * -----------------------------------
+ */
+const userlog = username => message => console.log(`${username} -> ${message}`);
+
+const log = userLogs("grandpa23")
+log("attempted to load 20 fake members")
+getFakeMembers(20).then(members => log(`successfully loaded ${members.length} members`),
+    error => log("encountered an error loading members"))
+
+/**
+ * --------------------------------------------
+ * RECURSION-
+ * --------------------------------------------
+ */
+const countdown = (value, fn) => {
+    fn(value)
+    return (value > 0) ? countdown(value - 1, fn) : value
+}
+
+countdown(10, value => console.log(value))
