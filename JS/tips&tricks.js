@@ -15,5 +15,6 @@
  * 4. use replace, reduce methods
  * 5. high order functions / functions within a function
  * 6. recursion
+ * 7. using namespaces in javascript
  * --------------------------------------------------------------
  */

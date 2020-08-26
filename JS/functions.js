@@ -239,3 +239,19 @@ const countdown = (value, fn) => {
 }
 
 countdown(10, value => console.log(value))
+
+/**
+ * ---------------------------------------------
+ * COMPOSITION
+ * ---------------------------------------------
+ */
+const template = 'hh:mm:ss tt'
+const clockTime = template.replace('hh', '03').replace('mm', '22').replace('ss', '33').replace('tt', 'pm')
+console.log(clockTime);
+
+const both = compose(
+    civilianHours,
+    appendAMPM
+)
+both(new Date())
+const compose = (...fns) => (arg) => fns.reduce((composed, f) => f(composed), arg)
