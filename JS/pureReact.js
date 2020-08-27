@@ -19,7 +19,9 @@ ReactDOM.render(dish, document.getElementById('react-container'))
 let items = ["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil"]
 React.creatElement('ul', {
     className: 'ingredients'
-}, items.map(ingredient => React.creatElement('li', null, ingredient)))
+}, items.map((ingredient, i) => React.creatElement('li', {
+    key: i
+}, ingredient)))
 
 /**
  * ----------------------------------------------
@@ -28,3 +30,9 @@ React.creatElement('ul', {
  * functional components 
  * ----------------------------------------------
  */
+
+ /**
+  * -------------------------------------------------
+  * NOTE: when rendering HTML or SVG we use strings
+  * -------------------------------------------------
+  */

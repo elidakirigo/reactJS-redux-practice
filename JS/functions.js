@@ -255,3 +255,14 @@ const both = compose(
 )
 both(new Date())
 const compose = (...fns) => (arg) => fns.reduce((composed, f) => f(composed), arg)
+
+/**
+ * ----------------------------------------------------------------
+ * STATELESS FUNCTIONS. 
+ * they have no 'this' scope. they are pure functions and simple
+ * -they take in properties and return DOM elements without side effects. 
+ * -in react stateless functions should take in props as properties 
+ * and return DOM elements. 
+ * they are faster than createClass or ES6 class syntax
+ * ----------------------------------------------------------------
+ */
