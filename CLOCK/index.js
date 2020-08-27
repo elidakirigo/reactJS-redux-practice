@@ -1,6 +1,7 @@
 /**
  * --------------------------------------
- * creating a clock using pure functions
+ * creating a clock in declarative form 
+ * using pure functions
  * --------------------------------------
  */
 const onesecond = () => 1000
@@ -31,6 +32,9 @@ const prependZero = key => clockTime => ({
     ...clockTime,
     [key]: (clockTime[key] < 10) ? '0' + clockTime[key] : clockTime[key]
 })
+
+const compose = (...fns) => (arg) => fns.reduce((composed, f) => f(composed), arg)
+
 // namespaces in javascript
 const convertToCivilianTime = clockTime => compose(
     appendAMPM,
